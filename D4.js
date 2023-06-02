@@ -36,7 +36,7 @@ else{
     console.log(x)
 }
 }
-crasySum(3,6)
+ crasySum(3,8)
 /* ESERCIZIO 3
  Scrivi una funzione di nome "crazyDiff" che calcola la differenza assoluta tra un numero fornito come parametro e 19.
  Deve inoltre tornare la differenza assoluta moltiplicata per tre qualora il numero fornito sia maggiore di 19.
@@ -46,14 +46,10 @@ crasySum(3,6)
 
 function crazyDiff(n1){
     if(n1>19){
-      let x= n1*3
-      Math.abs(n1*3)
-      console.log(x)
+      Math.abs(n1-19)*3// math.abs--> -5=5
     }
     else {
-    let y=n1!==19
     Math.abs(n1-19)
-    console.log(y)
     }
 
 }
@@ -80,18 +76,15 @@ boundary(400)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function epify(String2){
-    let string1="EPICODE"
-for(let i = 0; i < string1.length; i++){
-   if(String2.chart(i)!==EPICODE.tolowercase()){
-string1+=String2.chart(i)}
-else{
-    console("epicode")
+const epify = function (str) {
+  if (str.startsWith('EPICODE')) {//startWith-->controlla la stringa e da un valore true o false(serve per verificare la stringa)
+    return str
+  } else {
+    return 'EPICODE ' + str
+  }
 }
-}
-return string1
-}
-let newstring=String2(EPICODE)
+console.log(epify('EPICODERS')) // EPICODERS
+console.log(epify('Hello')) // EPICODE Hello
 
 
 /* ESERCIZIO 6
@@ -101,23 +94,44 @@ let newstring=String2(EPICODE)
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function check3and7(n1){
-if(n1%7){
-
+if(n1>0 && n1%7===0 || n1%3===0){
+return true
+}
+else{
+    return false
 }
 }
+console.log(check3and7(7))
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function reverseString(firstString,secondString)
+function reverseString(str){
+    let stringarray=str.split("")//split--> separa le stringhe
+    let reverseString=stringarray.reverse()//reverse--> inverte le parole delle stringhe 
+    let finalstring=reverseString.join("") //join-->
+     return finalstring
+}
+console.log(reverseString("EPICODE"))
 
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
-
-
+function upperFirst(frase){
+    let array3=frase.split("")
+    let finalString=[] 
+    for(let i=0;i<array3.length;i++){
+        let firsarray = array3[i].charAt(0)
+        let secondarray = firsarray.toUpperCase()
+        let cutString = array3[i].slice(1)
+        let finalWord =secondarray + cutString
+        finalString.push(finalWord)  
+    }
+    return 
+}
+ console.log(upperFirst("epicode forma sviluppatori"))
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* ESERCIZIO 9
@@ -126,20 +140,21 @@ function reverseString(firstString,secondString)
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-
+function cutString (str) {
+    return str.slice(1, str.length - 1)
+  }
+  console.log(cutString('EPICODE'))
+  
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-
-  //const number=[1,2,3,4,5,6,7,8,9,10,]
-
-//function giveMeRandom(n1){
-  
-    //for(let i = 0; i < number.length; i++){
-
-    //}
-
-//}
-//giveMeRandom
+function giveMeRandom (n) {
+  const arrayy = []
+  for (let i = 0; i < n; i++) {
+    arrayy.push(Math.floor(Math.random() * 10))
+  }
+  return arrayy
+}
+console.log(giveMeRandom(10))
